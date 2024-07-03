@@ -1,7 +1,7 @@
 # Nest.js boilerplate
 
 ## Supported
-- NPM, Node.js (버전 node:21.7.1 or Higher)
+- NPM, Node.js (node:21.7.1 or Higher)
 - Docker, Docker Compose
 - TypeORM (0.3.x or Higher)
 
