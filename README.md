@@ -23,3 +23,46 @@ npm run build
 ```
 docker-compose up
 ```
+
+## Directory Structure
+ROOT
+├── db
+└── src
+    ├── common
+    │   ├── decorator
+    │   ├── dto
+    │   ├── enum
+    │   ├── filter
+    │   ├── guard
+    │   ├── interceptor
+    │   ├── interface
+    │   └── middleware
+    ├── config
+    ├── entity
+    └── module
+        ├── auth
+        │   ├── controller
+        │   │   └── dto
+        │   │       ├── req
+        │   │       └── res
+        │   ├── decorator
+        │   ├── repository
+        │   └── service
+        │       └── dto
+        ├── post
+        │   ├── controller
+        │   │   └── dto
+        │   │       ├── req
+        │   │       └── res
+        │   ├── decorator
+        │   ├── repository
+        │   └── service
+        │       └── dto
+        └── user
+            ├── controller
+            │   └── dto
+            │       ├── req
+            │       └── res
+            ├── decorator
+            ├── repository
+            └── service
