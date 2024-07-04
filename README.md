@@ -25,6 +25,7 @@ docker-compose up
 ```
 
 ## Directory Structure
+```
 ROOT
 ├── db
 └── src
@@ -66,3 +67,4 @@ ROOT
             ├── decorator
             ├── repository
             └── service
+```
