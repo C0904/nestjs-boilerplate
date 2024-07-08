@@ -42,7 +42,7 @@ export class Post {
   })
   deletedAt: Date | null;
 
-  @ManyToOne(() => User, (user) => user.posts)
+  @ManyToOne(() => User, (user: User) => user.posts)
   @JoinColumn([{ name: 'user_id', referencedColumnName: 'id' }])
   userId: number;
 }

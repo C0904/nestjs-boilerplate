@@ -53,6 +53,6 @@ export class User {
   })
   deletedAt: Date | null;
 
-  @OneToMany(() => Post, (post) => post.userId)
+  @OneToMany(() => Post, (post: Post) => post.userId)
   posts: Post[];
 }
