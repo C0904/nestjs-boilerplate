@@ -5,6 +5,32 @@ volumes:
   db-init-volume:
 
 services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3003:3003'
+    volumes:
+      - .:/usr/src/app
+      - db-init-volume:/usr/src/app/db  # this volume is same as mysql container's path /usr/src/app/db
+    environment:
+      - APP_PORT=3003
+      - NODE_ENV=dev
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=any password
+      - DB_SCHEMA=test
+      - DB_ENTITY_PATH=dist/entities/*.js
+      - JWT_ACEESS_SECRET = any_secret_key
+      - JWT_REFRESH_SECRET = any_secret_key
+      - JWT_ACCESS_TOKEN_EXPIRATION_TIME = 3600s
+      - JWT_REFRESH_TOKEN_EXPIRATION_TIME = 30d
+    depends_on:
+      - mysql
+
+
   mysql:
     image: mysql
     environment:
@@ -14,16 +40,3 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql # for save data in local
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql  # for mount init.sql file
-
-  app:
-    image: node:21.7.1 # set the node version
-    working_dir: /usr/src/app
-    volumes:
-      - .:/usr/src/app
-      - db-init-volume:/usr/src/app/db  # this volume is same as mysql container's path /usr/src/app/db
-
-    command: "npm run start:docker:local"
-    depends_on:
-      - mysql
-    ports:
-      - '3003:3003'

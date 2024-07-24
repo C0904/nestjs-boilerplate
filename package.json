@@ -9,8 +9,7 @@
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start:dev": "cross-env NODE_ENV=dev pm2 start dist/main.js",
-    "start:docker:local": "cross-env NODE_ENV=dev nest start dist/main.js",
+    "start:dev": "node dist/main",
     "start:dev:local": "nodemon",
     "start:prod": "cross-env NODE_ENV=prod pm2 start dist/main.js",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
